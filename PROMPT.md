@@ -27,7 +27,7 @@ a) ShopifyQL vía `shopifyqlQuery(query: "...") { tableData { columns { name } r
    `FROM sessions SHOW sessions, conversion_rate, sessions_with_cart_additions, sessions_that_reached_checkout, sessions_that_completed_checkout DURING last_week COMPARE TO previous_period`
    Agrega (ajústalas si `parseErrors` indica algo; máx. 3 intentos por consulta; sintaxis en https://shopify.dev/docs/api/shopifyql):
    - `FROM sales SHOW total_sales, orders, average_order_value DURING last_week COMPARE TO previous_period`
-   - sesiones y conversión `GROUP BY` tipo de dispositivo, y por canal/fuente de referencia, `DURING last_week`
+   - sesiones y conversión `GROUP BY` canal/fuente de referencia, `DURING last_week` (el desglose por dispositivo no existe en ShopifyQL 2026-07: sácalo de Clarity con `dimension1=Device`)
    - `FROM sales SHOW total_sales, orders GROUP BY product_title DURING last_week ORDER BY total_sales DESC LIMIT 5`
    Nota: `conversion_rate` viene como fracción (0.0091 = 0,91 %).
 

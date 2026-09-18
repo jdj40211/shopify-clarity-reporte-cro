@@ -4,6 +4,28 @@ Una rutina de **Claude Code** que cada lunes lee los datos de tu tienda Shopify 
 
 Todo el trabajo lo hace un solo prompt: [`PROMPT.md`](PROMPT.md).
 
+## 🎥 Video
+
+[![Ver el video en YouTube](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
+
+En el video conecto una tienda Shopify real con Microsoft Clarity y con Claude, de principio a fin: instalo Clarity en el tema, saco los tokens, creo la rutina y reviso el primer reporte.
+
+## 📬 Así llega el correo
+
+👉 **[Ver un ejemplo completo del reporte](docs/ejemplo-reporte.md)**
+
+| Métrica | Esta semana | Semana anterior | Variación |
+|---|--:|--:|--:|
+| Sesiones | 1.520 | 1.406 | 🟢 ▲ +8,1 % |
+| Tasa de conversión | 0,94 % | 0,58 % | 🟢 ▲ +61,2 % |
+| Pedidos | 21 | 44 | 🔴 ▼ -52,3 % |
+| Ventas (COP) | $5.880.000 | $9.480.000 | 🔴 ▼ -38,0 % |
+
+> **Mayor fuga:** checkout → compra (21,4 %). El tráfico de búsqueda convirtió 0 %.
+> **Recomendación #1:** en `src/components/SearchOverlay.jsx`, mostrar productos más vendidos cuando la búsqueda no encuentra nada.
+
+*Cifras ilustrativas.*
+
 ## Qué trae el reporte
 
 1. Resumen ejecutivo de la semana
@@ -83,6 +105,8 @@ Ejecútala una vez a mano para comprobar que el correo te llega.
 
 - La consulta ShopifyQL del embudo está probada con la API `2026-07`. Las columnas de comparación llegan como `comparison_<métrica>__previous_period`.
 - `conversion_rate` llega como fracción: `0.0091` equivale a 0,91 %.
+- En la API `2026-07`, el modelo `sessions` de ShopifyQL **no tiene columna de dispositivo**: probamos `device_type`, `device` y `device_category` y ninguna existe. Para el desglose por dispositivo, usa Clarity (`dimension1=Device`).
+- En la primera corrida, Clarity respondió **403**. Revisa que el `CLARITY_TOKEN` del entorno de nube sea el mismo que probaste en local.
 - Clarity solo tiene datos desde el día en que lo instalaste y su API solo devuelve los últimos 3 días. Shopify cubre la semana completa y Clarity aporta el contexto de comportamiento.
 
 ## Seguridad

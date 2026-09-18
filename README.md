@@ -2,13 +2,9 @@
 
 Una rutina de **Claude Code** que cada lunes lee los datos de tu tienda Shopify y de Microsoft Clarity, analiza el embudo de conversión y te manda un reporte por correo con recomendaciones que apuntan a archivos reales de tu tema.
 
-Todo el trabajo lo hace un solo prompt: [`PROMPT.md`](PROMPT.md).
+## 👉 [Abrir el prompt (PROMPT.md)](PROMPT.md)
 
-## 🎥 Video
-
-[![Ver el video en YouTube](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
-
-En el video conecto una tienda Shopify real con Microsoft Clarity y con Claude, de principio a fin: instalo Clarity en el tema, saco los tokens, creo la rutina y reviso el primer reporte.
+Cópialo, reemplaza los valores entre `{{ }}` con los datos de tu tienda y pégalo en tu rutina de Claude Code. Abajo está el paso a paso.
 
 ## 📬 Así llega el correo
 
